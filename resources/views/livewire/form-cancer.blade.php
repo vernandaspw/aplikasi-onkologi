@@ -182,7 +182,7 @@
                                     <select class="form-select" id="prlktmr" wire:model="input_perilaku">
                                         <option value="">Pilih</option>
                                         @foreach ($perilakus as $perilaku)
-                                            <option value="{{ $perilaku->kode }}">{{ $perilaku->nama }}</option>
+                                            <option value="{{ $perilaku->kode }}">{{ $perilaku->kode }} - {{ $perilaku->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -193,7 +193,7 @@
                                     <select class="form-select" id="grade" wire:model="input_grade">
                                         <option value="">Pilih</option>
                                         @foreach ($grades as $grade)
-                                            <option value="{{ $grade->kode }}">{{ $grade->nama }}</option>
+                                            <option value="{{ $grade->kode }}">{{ $grade->kode }} - {{ $grade->nama }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -206,7 +206,7 @@
                                         wire:model="input_basisDiagnosaTervalids">
                                         <option value="">Pilih</option>
                                         @foreach ($basisDiagnosaTervalids as $basisDiagnosaTervalid)
-                                            <option value="{{ $basisDiagnosaTervalid->kode }}">
+                                            <option value="{{ $basisDiagnosaTervalid->kode }}">{{ $basisDiagnosaTervalid->kode }} -
                                                 {{ $basisDiagnosaTervalid->nama }}</option>
                                         @endforeach
                                     </select>
@@ -219,7 +219,7 @@
                                     <select class="form-select" id="stdm" wire:model="input_stadium">
                                         <option value="">Pilih</option>
                                         @foreach ($stadiums as $stadium)
-                                            <option value="{{ $stadium->kode }}">
+                                            <option value="{{ $stadium->kode }}">{{ $stadium->kode }} -
                                                 {{ $stadium->nama }}</option>
                                         @endforeach
 
@@ -244,7 +244,7 @@
                                 <div class="col">
                                     <select class="form-select" id="pnybrn_sblm_trp" wire:model="input_penyebaran">
                                         @foreach ($penyebarans as $penyebaran)
-                                            <option value="{{ $penyebaran->kode }}">
+                                            <option value="{{ $penyebaran->kode }}">{{ $penyebaran->kode }} -
                                                 {{ $penyebaran->nama }}</option>
                                         @endforeach
 
@@ -262,7 +262,7 @@
                                 <div class="col">
                                     <select class="form-select" id="trp_plpr" wire:model="input_terapi">
                                         @foreach ($terapis as $terapi)
-                                            <option value="{{ $terapi->kode }}">
+                                            <option value="{{ $terapi->kode }}"> {{ $terapi->kode }} -
                                                 {{ $terapi->nama }}</option>
                                         @endforeach
 
@@ -274,7 +274,7 @@
                                 <div class="col">
                                     <select class="form-select" id="lateralitas" wire:model="input_lateralitas">
                                         @foreach ($lateralitass as $lateralitas)
-                                            <option value="{{ $lateralitas->kode }}">
+                                            <option value="{{ $lateralitas->kode }}">{{ $lateralitas->kode }} -
                                                 {{ $lateralitas->nama }}</option>
                                         @endforeach
 
@@ -297,14 +297,16 @@
 
                     <div class="row mb-3">
                         <label for="metastasis" class="col col-form-label">Metastasis/Anak Sebar Jauh</label>
-                        @foreach ($metastasiss as $metastasis)
+                        <div class="">
+                            @foreach ($metastasiss as $metastasis)
                             <div class="col">
                                 <div class="d-flex align-items-center">
                                     <input type="checkbox" wire:model="input_metastasis.{{ $loop->index }}" id="metastasis-{{ $loop->index }}" value="{{ $metastasis->id }}">
-                                    <label for="metastasis-{{ $loop->index }}" class="ms-2">{{ $metastasis->nama }}</label>
+                                    <label for="metastasis-{{ $loop->index }}" class="ms-2">{{ $metastasis->kode }} - {{ $metastasis->nama }}</label>
                                 </div>
                             </div>
                         @endforeach
+                        </div>
                     </div>
 
 

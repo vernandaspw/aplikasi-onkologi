@@ -36,14 +36,14 @@ class FormCancer extends Component
     public $perilakus = [], $grades = [], $basisDiagnosaTervalids = [], $stadiums = [], $penyebarans = [], $terapis = [], $lateralitass = [], $metastasiss = [];
     public function fetch()
     {
-        $this->perilakus = PerilakuTumor::orderBy('nama', 'asc')->get();
-        $this->grades = Grade::orderBy('nama', 'asc')->get();
-        $this->basisDiagnosaTervalids = BasisDiagnosaTervalid::orderBy('nama', 'asc')->get();
-        $this->stadiums = Stadium::orderBy('nama', 'asc')->get();
-        $this->penyebarans = Penyebaran::orderBy('nama', 'asc')->get();
-        $this->terapis = TerapiDiinstitusiPelapor::orderBy('nama', 'asc')->get();
-        $this->lateralitass = Lateralitas::orderBy('nama', 'asc')->get();
-        $this->metastasiss = Metastasis::orderBy('nama', 'asc')->get();
+        $this->perilakus = PerilakuTumor::orderBy('kode', 'asc')->get();
+        $this->grades = Grade::orderBy('kode', 'asc')->get();
+        $this->basisDiagnosaTervalids = BasisDiagnosaTervalid::orderBy('kode', 'asc')->get();
+        $this->stadiums = Stadium::orderBy('kode', 'asc')->get();
+        $this->penyebarans = Penyebaran::orderBy('kode', 'asc')->get();
+        $this->terapis = TerapiDiinstitusiPelapor::orderBy('kode', 'asc')->get();
+        $this->lateralitass = Lateralitas::orderBy('kode', 'asc')->get();
+        $this->metastasiss = Metastasis::orderBy('kode', 'asc')->get();
     }
 
     public function logout()
