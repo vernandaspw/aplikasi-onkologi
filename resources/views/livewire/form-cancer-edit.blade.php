@@ -1,4 +1,7 @@
 <div>
+    {{-- Because she competes with no one, no one can compete with her. --}}
+</div>
+<div>
     <div class="container">
         <div class="row">
 
@@ -403,7 +406,10 @@
                                                         wire:model.defer="input_perilaku">
                                                         <option value="">Pilih</option>
                                                         @foreach ($perilakus as $perilaku)
-                                                        <option value="{{ $perilaku->kode }}">{{ $perilaku->kode }}
+                                                        <option @if($input_perilaku==$perilaku->kode)
+                                                            selected
+                                                            @endif
+                                                            value="{{ $perilaku->kode }}">{{ $perilaku->kode }}
                                                             - {{
                                                             $perilaku->nama
                                                             }}</option>
@@ -418,7 +424,10 @@
                                                     <select class="form-select" id="grade" wire:model="input_grade">
                                                         <option value="">Pilih</option>
                                                         @foreach ($grades as $grade)
-                                                        <option value="{{ $grade->kode }}">{{ $grade->kode }} - {{
+                                                        <option @if($input_grade==$grade->kode)
+                                                            selected
+                                                            @endif
+                                                            value="{{ $grade->kode }}">{{ $grade->kode }} - {{
                                                             $grade->nama }}
                                                         </option>
                                                         @endforeach
@@ -481,10 +490,6 @@
                                         <div class="card-footer py-1 text-body-secondary bg-success-subtle">
                                         </div>
                                     </div>
-
-
-
-
                                 </div>
                                 <div class="col-6">
                                     <div class="card">
@@ -497,21 +502,21 @@
                                                     <label for="T" class="col-4 col-form-label">T</label>
                                                     <div class="col">
                                                         <input wire:model="inputT" type="text" class="form-control"
-                                                            id="T" name="T">
+                                                            id="T">
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <label for="N" class="col-4 col-form-label">N</label>
                                                     <div class="col">
                                                         <input wire:model="inputN" type="text" class="form-control"
-                                                            id="N" name="N">
+                                                            id="N" >
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <label for="M" class="col-4 col-form-label">M</label>
                                                     <div class="col">
                                                         <input wire:model="inputM" type="text" class="form-control"
-                                                            id="M" name="M">
+                                                            id="M" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -680,7 +685,7 @@
                                         class="btn me-1 bg-warning-subtle">Edit</button>
                                     <button wire:click="hapusDataSumber('{{ $data_sumber['ds_tgl_periksa'] }}')"
                                         class="btn bg-danger-subtle">hapus</button>
-                                    </td>
+                                </td>
                             </tr>
                             @endif
                             @endforeach
@@ -748,10 +753,11 @@
                 </div>
             </div>
             <p class="text-center mt-3">
-                <div class="" wire:loading wire:target="save()"><button type="button" class="btn w-100 btn-warning">Loading</button></div>
-                <div wire:target="save()" wire:loading.remove>
-                    <button wire:click="save" class="btn w-100 btn-success">Simpan</button>
-                </div>
+            <div class="" wire:loading wire:target="save()"><button type="button"
+                    class="btn w-100 btn-warning">Loading</button></div>
+            <div wire:target="save()" wire:loading.remove>
+                <button wire:click="save" class="btn w-100 btn-success">Simpan</button>
+            </div>
             </p>
         </div>
     </div>

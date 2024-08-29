@@ -9,4 +9,8 @@ use Rorecek\Ulid\HasUlid;
 class DataTumor extends Model
 {
     use HasFactory, HasUlid;
+
+    protected $connection = 'mysql';
+    protected $guarded = ['id'];
+    protected $table = 'cancer_data_tumor';
 }

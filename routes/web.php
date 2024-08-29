@@ -2,6 +2,7 @@
 
 use App\Http\Livewire\Auth\LoginPage;
 use App\Http\Livewire\FormCancer;
+use App\Http\Livewire\FormCancerEdit;
 use App\Http\Livewire\HomePage;
 use App\Http\Livewire\PasienDetailPage;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ Route::get('login', LoginPage::class)->name('login');
 Route::middleware(['auth'])->group(function () {
 Route::get('/', HomePage::class);
 Route::get('pasien-regs/{norm}', PasienDetailPage::class);
-Route::get('form-cancer/{norm}', FormCancer::class);
+Route::get('form-cancer', FormCancer::class);
+Route::get('form-cancer-edit', FormCancerEdit::class);
 });
 

@@ -9,4 +9,9 @@ use Rorecek\Ulid\HasUlid;
 class DataSumber extends Model
 {
     use HasFactory, HasUlid;
+
+    protected $connection = 'mysql';
+    protected $table = 'cancer_data_sumber';
+
+    protected $guarded = ['id'];
 }
