@@ -22,6 +22,23 @@ class FormCancerEdit extends Component
 {
     public function render()
     {
+        $dataTumor = DataTumor::where('norm', $this->norm)->where('noreg', $this->noreg)->first();
+
+        $topography = Topography::where('code', $dataTumor->topography_kode)->first();
+        $this->topographyCODE = $topography->CODE;
+        $this->topographySTR = $topography->STR;
+
+        $morphology = Morphology::where('code', $dataTumor->morphology_kode)->first();
+        $this->morphologyCODE = $morphology->CODE;
+        $this->morphologySTR = $morphology->STR;
+
+        $this->input_perilaku = $dataTumor->perilaku_kode;
+        $this->input_grade = $dataTumor->grade_kode;
+        $this->inputT = $dataTumor->t;
+
+        $this->inputN = $dataTumor->n;
+        $this->inputM = $dataTumor->m;
+        $this->input_lateralitas = $dataTumor->lateralitas_kode;
         return view('livewire.form-cancer-edit')->extends('layouts.app')->section('content');
     }
 
@@ -55,6 +72,8 @@ class FormCancerEdit extends Component
         // $this->nik = $this->pasien->SSN;
 
         $this->fetch();
+
+        //    dd($this->inputT);
     }
 
     public $aa;
@@ -70,20 +89,6 @@ class FormCancerEdit extends Component
         $this->lateralitass = Lateralitas::orderBy('kode', 'asc')->get();
         $this->metastasiss = Metastasis::orderBy('kode', 'asc')->get();
 
-        $dataTumor = DataTumor::where('norm', $this->norm)->where('noreg', $this->noreg)->first();
-        $topography = Topography::where('code', $dataTumor->topography_kode)->first();
-        $this->topographyCODE = $topography->CODE;
-        $this->topographySTR = $topography->STR;
 
-        $morphology = Morphology::where('code', $dataTumor->morphology_kode)->first();
-        $this->morphologyCODE = $morphology->CODE;
-        $this->morphologySTR = $morphology->STR;
-
-        $this->input_perilaku = $dataTumor->perilaku_kode;
-        $this->input_grade = $dataTumor->grade_kode;
-        $this->inputT = $dataTumor->t;
-        $this->inputN = $dataTumor->n;
-        $this->inputM = $dataTumor->m;
-        $this->input_lateralitas = $dataTumor->lateralitas_kode;
     }
 }

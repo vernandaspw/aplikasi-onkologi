@@ -175,6 +175,69 @@
                                 <div class="col-6">
                                     <div class="card">
                                         <div class="card-header text-center bg-success-subtle">
+                                            Form Pengkajian Awal Medis
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-4">
+                                                    <label for="T" class="col-4 col-form-label">T</label>
+                                                    <div class="col">
+                                                        {{ $inputT }}
+                                                        <input wire:model="inputT" type="text" class="form-control"
+                                                            id="T">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label for="N" class="col-4 col-form-label">N</label>
+                                                    <div class="col">
+                                                        <input wire:model="inputN" type="text" class="form-control"
+                                                            id="N">
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <label for="M" class="col-4 col-form-label">M</label>
+                                                    <div class="col">
+                                                        <input wire:model="inputM" type="text" class="form-control"
+                                                            id="M">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="lateralitas"
+                                                    class="col-5 col-form-label">Lateralitas</label>
+                                                <div class="col">
+                                                    <select class="form-select" id="lateralitas"
+                                                        wire:model="input_lateralitas">
+                                                        <option value="">Pilih</option>
+                                                        @foreach ($lateralitass as $lateralitas)
+                                                        <option value="{{ $lateralitas->kode }}">{{
+                                                            $lateralitas->kode }} -
+                                                            {{ $lateralitas->nama }}</option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="stdm" class="col-5 col-form-label">Stadium</label>
+                                                <div class="col">
+
+                                                    <select class="form-select" id="stdm" wire:model="input_stadium">
+                                                        <option value="">Pilih</option>
+                                                        @foreach ($stadiums as $stadium)
+                                                        <option value="{{ $stadium->kode }}">{{ $stadium->kode }} -
+                                                            {{ $stadium->nama }}</option>
+                                                        @endforeach
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer py-1 text-body-secondary bg-success-subtle">
+                                        </div>
+                                    </div>
+                                    <div class="card">
+                                        <div class="card-header text-center bg-success-subtle">
                                             Form Pengisian Lab PA
                                         </div>
                                         <div class="card-body">
@@ -212,7 +275,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="mb-2">
-                                                                        <form a wire:submit.prevent="cariTopography">
+                                                                        <form wire:submit.prevent="cariTopography">
                                                                             <div class="row">
                                                                                 <div class="col">
                                                                                     <input
@@ -323,7 +386,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="mb-2">
-                                                                        <form a wire:submit.prevent="cariMorphology">
+                                                                        <form wire:submit.prevent="cariMorphology">
                                                                             <div class="row">
                                                                                 <div class="col">
                                                                                     <input
@@ -509,14 +572,14 @@
                                                     <label for="N" class="col-4 col-form-label">N</label>
                                                     <div class="col">
                                                         <input wire:model="inputN" type="text" class="form-control"
-                                                            id="N" >
+                                                            id="N">
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <label for="M" class="col-4 col-form-label">M</label>
                                                     <div class="col">
                                                         <input wire:model="inputM" type="text" class="form-control"
-                                                            id="M" >
+                                                            id="M">
                                                     </div>
                                                 </div>
                                             </div>
