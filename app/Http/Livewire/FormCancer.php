@@ -110,6 +110,7 @@ class FormCancer extends Component
         }
     }
 
+    public $dpjp;
     public function mount()
     {
         // dd($this->noreg, $this->norm);
@@ -119,6 +120,7 @@ class FormCancer extends Component
         $this->nmregister = $reg->LastUpdatedBy;
         $this->pasien = Pasien::where('MedicalNo', $this->norm)->first();
         // $this->nik = $this->pasien->SSN;
+        $this->dpjp = $reg->paramedic->ParamedicName;
 
         $this->fetch();
     }
@@ -313,6 +315,7 @@ class FormCancer extends Component
                 foreach ($this->input_metastasis as $im) {
                     // $cm = Metastasis::where('id', $im)->first();
                     $dtm = new DataTumorMetastasis();
+                    $dtm->data_tumor_id = $d->id;
                     $dtm->kode = $im;
                     $dtm->save();
                 }

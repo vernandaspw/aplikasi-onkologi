@@ -1,11 +1,6 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
-</div>
-<div>
     <div class="container">
         <div class="row">
-
-
             <div class="col">
                 <div class="sticky-top">
                     <div class="container mt-3">
@@ -17,7 +12,7 @@
                                     Kembali
                                 </a>
                                 <div class="">
-                                    <span class="text-white mb-0 h6"><b>Buat Formulir Cancer</b></span>
+                                    <span class="text-white mb-0 h6"><b>Edit Formulir Cancer</b></span>
                                 </div>
                                 {{-- <button onclick="confirm('Anda yakin?') || event.stopImmediatePropagation()"
                                     wire:click="logout" class="btn bg-danger text-white rounded-pill">
@@ -33,7 +28,8 @@
                         <br>
                     </div>
                 </div>
-
+                {{ $tes }}
+                <input type="text" wire:model="tes">
                 <div id="list-item-1" class="card mb-2">
                     <div class="card-header text-center text-white bg-success">
                         <b>DATA PASIEN</b>
@@ -41,12 +37,18 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-6">
-
+                                <div class="row mb-3">
+                                    <label for="norm" class="col-3 col-form-label">NoREG</label>
+                                    <div class="col">
+                                        <input disabled type="text" value="{{ $noreg }}" class="form-control" id="norm"
+                                            name="norm">
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="norm" class="col-3 col-form-label">No. RM</label>
                                     <div class="col">
-                                        <input disabled type="text" value="{{ $pasien->MedicalNo }}"
-                                            class="form-control" id="norm" name="norm">
+                                        <input type="text" value="{{ $norm }}" class="form-control" id="norm"
+                                            name="norm">
                                     </div>
                                 </div>
                                 <div class="row mb-3">
@@ -80,6 +82,13 @@
                                 </div>
                             </div>
                             <div class="col-6">
+                                <div class="row mb-3">
+                                    <label for="dpjp" class="col-3 col-form-label">DPJP</label>
+                                    <div class="col">
+                                        <input value="{{ $dpjp }}" disabled type="text" class="form-control" id="dpjp"
+                                            name="dpjp">
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="tgllhr" class="col-3 col-form-label">Jenis kelamin</label>
                                     <div class="col">
@@ -175,69 +184,6 @@
                                 <div class="col-6">
                                     <div class="card">
                                         <div class="card-header text-center bg-success-subtle">
-                                            Form Pengkajian Awal Medis
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="row mb-3">
-                                                <div class="col-4">
-                                                    <label for="T" class="col-4 col-form-label">T</label>
-                                                    <div class="col">
-                                                        {{ $inputT }}
-                                                        <input wire:model="inputT" type="text" class="form-control"
-                                                            id="T">
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <label for="N" class="col-4 col-form-label">N</label>
-                                                    <div class="col">
-                                                        <input wire:model="inputN" type="text" class="form-control"
-                                                            id="N">
-                                                    </div>
-                                                </div>
-                                                <div class="col-4">
-                                                    <label for="M" class="col-4 col-form-label">M</label>
-                                                    <div class="col">
-                                                        <input wire:model="inputM" type="text" class="form-control"
-                                                            id="M">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="lateralitas"
-                                                    class="col-5 col-form-label">Lateralitas</label>
-                                                <div class="col">
-                                                    <select class="form-select" id="lateralitas"
-                                                        wire:model="input_lateralitas">
-                                                        <option value="">Pilih</option>
-                                                        @foreach ($lateralitass as $lateralitas)
-                                                        <option value="{{ $lateralitas->kode }}">{{
-                                                            $lateralitas->kode }} -
-                                                            {{ $lateralitas->nama }}</option>
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <label for="stdm" class="col-5 col-form-label">Stadium</label>
-                                                <div class="col">
-
-                                                    <select class="form-select" id="stdm" wire:model="input_stadium">
-                                                        <option value="">Pilih</option>
-                                                        @foreach ($stadiums as $stadium)
-                                                        <option value="{{ $stadium->kode }}">{{ $stadium->kode }} -
-                                                            {{ $stadium->nama }}</option>
-                                                        @endforeach
-
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-footer py-1 text-body-secondary bg-success-subtle">
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header text-center bg-success-subtle">
                                             Form Pengisian Lab PA
                                         </div>
                                         <div class="card-body">
@@ -275,7 +221,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="mb-2">
-                                                                        <form wire:submit.prevent="cariTopography">
+                                                                        <form a wire:submit.prevent="cariTopography">
                                                                             <div class="row">
                                                                                 <div class="col">
                                                                                     <input
@@ -386,7 +332,7 @@
                                                                 </div>
                                                                 <div class="modal-body">
                                                                     <div class="mb-2">
-                                                                        <form wire:submit.prevent="cariMorphology">
+                                                                        <form a wire:submit.prevent="cariMorphology">
                                                                             <div class="row">
                                                                                 <div class="col">
                                                                                     <input
@@ -469,10 +415,7 @@
                                                         wire:model.defer="input_perilaku">
                                                         <option value="">Pilih</option>
                                                         @foreach ($perilakus as $perilaku)
-                                                        <option @if($input_perilaku==$perilaku->kode)
-                                                            selected
-                                                            @endif
-                                                            value="{{ $perilaku->kode }}">{{ $perilaku->kode }}
+                                                        <option value="{{ $perilaku->kode }}">{{ $perilaku->kode }}
                                                             - {{
                                                             $perilaku->nama
                                                             }}</option>
@@ -487,10 +430,7 @@
                                                     <select class="form-select" id="grade" wire:model="input_grade">
                                                         <option value="">Pilih</option>
                                                         @foreach ($grades as $grade)
-                                                        <option @if($input_grade==$grade->kode)
-                                                            selected
-                                                            @endif
-                                                            value="{{ $grade->kode }}">{{ $grade->kode }} - {{
+                                                        <option value="{{ $grade->kode }}">{{ $grade->kode }} - {{
                                                             $grade->nama }}
                                                         </option>
                                                         @endforeach
@@ -553,6 +493,10 @@
                                         <div class="card-footer py-1 text-body-secondary bg-success-subtle">
                                         </div>
                                     </div>
+
+
+
+
                                 </div>
                                 <div class="col-6">
                                     <div class="card">
@@ -565,21 +509,21 @@
                                                     <label for="T" class="col-4 col-form-label">T</label>
                                                     <div class="col">
                                                         <input wire:model="inputT" type="text" class="form-control"
-                                                            id="T">
+                                                            id="T" name="T">
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <label for="N" class="col-4 col-form-label">N</label>
                                                     <div class="col">
                                                         <input wire:model="inputN" type="text" class="form-control"
-                                                            id="N">
+                                                            id="N" name="N">
                                                     </div>
                                                 </div>
                                                 <div class="col-4">
                                                     <label for="M" class="col-4 col-form-label">M</label>
                                                     <div class="col">
                                                         <input wire:model="inputM" type="text" class="form-control"
-                                                            id="M">
+                                                            id="M" name="M">
                                                     </div>
                                                 </div>
                                             </div>
@@ -688,14 +632,9 @@
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
-
-
     <div class="container">
         <div>
             <br>
@@ -748,7 +687,7 @@
                                         class="btn me-1 bg-warning-subtle">Edit</button>
                                     <button wire:click="hapusDataSumber('{{ $data_sumber['ds_tgl_periksa'] }}')"
                                         class="btn bg-danger-subtle">hapus</button>
-                                </td>
+                                    </td>
                             </tr>
                             @endif
                             @endforeach
@@ -771,12 +710,12 @@
                     <div class="row mb-3">
                         <label for="tglmasuk" class="col-sm-2 col-form-label">Tanggal Masuk</label>
                         <div class="col-2">
-                            <input type="date" class="form-control" id="tglmasuk" wire:model="tgl_masuk">
+                            <input disabled type="date" class="form-control" id="tglmasuk" wire:model="tgl_masuk">
                         </div>
                         <label for="nmregister" class="col-sm-2 col-form-label">Nama Register<span
                                 class="text-danger"><b>*</b></span></label>
                         <div class="col-2">
-                            <input type="text" class="form-control" id="nmregister" wire:model="nmregister">
+                            <input disabled type="text" class="form-control" id="nmregister" wire:model="nmregister">
                         </div>
                         <label for="nmregister" class="col-sm-2 col-form-label">Nama Verifikator</label>
                         <div class="col-2 ">
@@ -816,11 +755,10 @@
                 </div>
             </div>
             <p class="text-center mt-3">
-            <div class="" wire:loading wire:target="save()"><button type="button"
-                    class="btn w-100 btn-warning">Loading</button></div>
-            <div wire:target="save()" wire:loading.remove>
-                <button wire:click="save" class="btn w-100 btn-success">Simpan</button>
-            </div>
+                <div class="" wire:loading wire:target="save()"><button type="button" class="btn w-100 btn-warning">Loading</button></div>
+                <div wire:target="save()" wire:loading.remove>
+                    <button wire:click="save" class="btn w-100 btn-success">Simpan</button>
+                </div>
             </p>
         </div>
     </div>

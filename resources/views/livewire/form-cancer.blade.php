@@ -1,8 +1,6 @@
 <div>
     <div class="container">
         <div class="row">
-
-
             <div class="col">
                 <div class="sticky-top">
                     <div class="container mt-3">
@@ -39,6 +37,13 @@
                         <div class="row">
                             <div class="col-6">
 
+                                <div class="row mb-3">
+                                    <label for="norm" class="col-3 col-form-label">NoREG</label>
+                                    <div class="col">
+                                        <input disabled type="text" value="{{ $noreg }}"
+                                            class="form-control" id="norm" name="norm">
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="norm" class="col-3 col-form-label">No. RM</label>
                                     <div class="col">
@@ -77,6 +82,13 @@
                                 </div>
                             </div>
                             <div class="col-6">
+                                <div class="row mb-3">
+                                    <label for="dpjp" class="col-3 col-form-label">DPJP</label>
+                                    <div class="col">
+                                        <input value="{{ $dpjp }}"
+                                            disabled type="text" class="form-control" id="dpjp" name="dpjp">
+                                    </div>
+                                </div>
                                 <div class="row mb-3">
                                     <label for="tgllhr" class="col-3 col-form-label">Jenis kelamin</label>
                                     <div class="col">

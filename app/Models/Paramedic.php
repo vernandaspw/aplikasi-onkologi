@@ -5,20 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Registration extends Model
+class Paramedic extends Model
 {
     use HasFactory;
-
     protected $connection = 'sqlsrv_Sphaira';
-    protected $table = 'Registration';
-    protected $guarded = ['RegistrationNo'];
-    protected $primaryKey = 'RegistrationNo';
+    protected $table = 'Paramedic';
+    protected $guarded = ['ParamedicID'];
+    protected $primaryKey = 'ParamedicID';
 
     protected $keyType = 'string';
     public $incrementing = false;
     public $timestamps = false;
-
-    function paramedic() {
-        return $this->belongsTo(Paramedic::class, 'ParamedicID', 'ParamedicID');
-    }
 }

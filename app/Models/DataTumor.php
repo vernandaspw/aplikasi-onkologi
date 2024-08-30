@@ -13,4 +13,8 @@ class DataTumor extends Model
     protected $connection = 'mysql';
     protected $guarded = ['id'];
     protected $table = 'cancer_data_tumor';
+
+    function dataTumorMetastasis() {
+        return $this->hasMany(DataTumorMetastasis::class);
+    }
 }
