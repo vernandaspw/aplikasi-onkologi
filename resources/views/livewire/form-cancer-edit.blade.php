@@ -660,7 +660,7 @@
                         <tbody>
                             {{-- @foreach ($data_sumbers as $data_sumber) --}}
                             @foreach ($data_sumbers as $data_sumber)
-                            @if($IDeditDataSumberPage === $data_sumber['ds_tgl_periksa'])
+                            @if($IDeditDataSumberPage === $data_sumber->id )
                             <tr>
                                 <th scope="row"><input wire:model="eds_tgl_periksa" type="date" class="form-control"
                                         name="" id=""></th>
@@ -675,19 +675,19 @@
                             @else
                             <tr>
                                 <th>
-                                    {{ $data_sumber['ds_tgl_periksa'] }}
+                                    {{ $data_sumber->tgl_periksa }}
                                 </th>
-                                <td>{{ $data_sumber['ds_nama_rs'] }}</td>
-                                <td>{{ $data_sumber['ds_kode_rs'] }}</td>
-                                <td>{{ $data_sumber['ds_unit_id'] }}</td>
-                                <td>{{ $data_sumber['ds_unit'] }}</td>
-                                <td>{{ $data_sumber['ds_pa_lab'] }}</td>
+                                <td>{{ $data_sumber->nama_rs }}</td>
+                                <td>{{ $data_sumber->kode_rs }}</td>
+                                <td>{{ $data_sumber->unit_id }}</td>
+                                <td>{{ $data_sumber->unit }}</td>
+                                <td>{{ $data_sumber->no_pa_lab }}</td>
                                 <td class="d-flex">
-                                    <button wire:click="editDataSumberPage('{{ $data_sumber['ds_tgl_periksa'] }}')"
+                                    <button wire:click="editDataSumberPage('{{ $data_sumber->id }}')"
                                         class="btn me-1 bg-warning-subtle">Edit</button>
-                                    <button wire:click="hapusDataSumber('{{ $data_sumber['ds_tgl_periksa'] }}')"
+                                    <button wire:click="hapusDataSumber('{{ $data_sumber->id }}')"
                                         class="btn bg-danger-subtle">hapus</button>
-                                    </td>
+                                </td>
                             </tr>
                             @endif
                             @endforeach
@@ -755,10 +755,11 @@
                 </div>
             </div>
             <p class="text-center mt-3">
-                <div class="" wire:loading wire:target="save()"><button type="button" class="btn w-100 btn-warning">Loading</button></div>
-                <div wire:target="save()" wire:loading.remove>
-                    <button wire:click="save" class="btn w-100 btn-success">Simpan</button>
-                </div>
+            <div class="" wire:loading wire:target="save()"><button type="button"
+                    class="btn w-100 btn-warning">Loading</button></div>
+            <div wire:target="save()" wire:loading.remove>
+                <button wire:click="save" class="btn w-100 btn-success">Simpan</button>
+            </div>
             </p>
         </div>
     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\BasisDiagnosaTervalid;
+use App\Models\DataSumber;
 use App\Models\DataTumor;
 use App\Models\Grade;
 use App\Models\Lateralitas;
@@ -206,7 +207,7 @@ class FormCancerEdit extends Component
 
     public function loadDataSumber()
     {
-
+        $this->data_sumbers = DataSumber::where('norm', $this->norm)->orWhere('nik', $this->nik)->get();
     }
 
     public function createDataSumber()
